@@ -2,6 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
+# Custom gems
+gem 'devise'
+gem 'bulma-rails', '~> 0.7.4'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'httparty', '~> 0.16.4'
+gem 'sentry-raven', '~> 2.9'
+gem 'better_errors', '~> 2.5', '>= 2.5.1'
+gem 'guard', '~> 2.15'
+gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -23,7 +32,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
