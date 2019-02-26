@@ -3,26 +3,25 @@
 <%= render 'chatrooms/form' %>
 <br>
 
-<div class="chatrooms-box">
-    <% if @chatrooms.length == 0 %>
-            <p>No Chatrooms! Must Create One!</p>
-    <% else %>
-        <% @chatrooms.each do |chatroom| %>
+<% if @chatrooms.length == 0 %>
+        <p>No Chatrooms! Must Create One!</p>
+<% else %>
+    <% @chatrooms.each do |chatroom| %>
+        <div class="chatrooms-box">
             <%= link_to chatroom.title, chatroom_path(chatroom) %>
             <button class="button is-secondary edit-chatroom-button">
                 Edit Chatroom
             </button>
             <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
-            <br>
+        </div>
 
-            <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>
-                <%= f.label :enter_title %>
-                <%= f.text_field :title %>
-                <%= f.submit "Update Chatroom", class: "button is-secondary" %>
-                <button class="button is-danger cancel-edit-chatroom-button">
-                    Cancel
-                </button>
-            <% end %>
+        <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>
+            <%= f.label :enter_title %>
+            <%= f.text_field :title %>
+            <%= f.submit "Update Chatroom", class: "button is-secondary" %>
+            <button class="button is-danger cancel-edit-chatroom-button">
+                Cancel
+            </button>
         <% end %>
     <% end %>
-</div>
+<% end %>
