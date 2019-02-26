@@ -11,13 +11,22 @@
         <p>No Chatrooms! Must Create One!</p>
 <% else %>
     <% @chatrooms.each do |chatroom| %>
-        <%= link_to chatroom.title, chatroom_path(chatroom) %>
-        <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
+        <div class="chatroom-box">
+            <%= link_to chatroom.title, chatroom_path(chatroom) %> <br>
+            <button class="button is-secondary edit-chatroom-button">
+                Edit Chatroom
+            </button>
+            <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
+        </div>
+        <br>
 
-        <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch) do |f| %>
+        <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>
             <%= f.label :enter_title %>
             <%= f.text_field :title %>
             <%= f.submit "Update Chatroom", class: "button is-secondary" %>
+            <button class="button is-danger cancel-edit-chatroom-button">
+                Cancel
+            </button>
         <% end %>
     <% end %>
 <% end %>
