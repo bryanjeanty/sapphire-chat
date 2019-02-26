@@ -12,7 +12,9 @@
             <button class="button is-secondary edit-chatroom-button">
                 Edit Chatroom
             </button>
-            <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
+            <% if current_user.id == chatroom.user.id %>
+                <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
+            <% end %>
         </div>
 
         <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>

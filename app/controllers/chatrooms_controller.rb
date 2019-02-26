@@ -1,12 +1,16 @@
 class ChatroomsController < ApplicationController
     before_action :find_chatroom, only: [:show, :update, :destroy]
+    before_action :authenticate_user!, only: [:index, :show]
+
     def index
         @chatrooms = Chatroom.all
         @chatroom = Chatroom.new
     end
 
     def create
-        @chatroom = Chatroom.create(chatrooms_params)
+        @chatroom = Chatroom.new(chatrooms_params)
+        @chatroom.user = current_user
+        @chatroom.save
         redirect_to chatrooms_path
     end
 
