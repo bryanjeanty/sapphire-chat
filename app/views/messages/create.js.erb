@@ -1,0 +1,9 @@
+document.querySelector('.chatroom-container').innerHTML += '<%= j render @message %>';
+document.querySelector('.chatroom-container').innerHTML += '<br>';
+
+function scrollToBottom(elem) {
+    elem.scrollTop = elem.scrollHeight;
+}
+
+setInterval(scrollToBottom(document.querySelector('.chatroom-container')), 2000);
+document.querySelector('.message-text-area').value = ""

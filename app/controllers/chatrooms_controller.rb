@@ -11,6 +11,8 @@ class ChatroomsController < ApplicationController
     end
 
     def show
+        @messages = Message.all
+        @message = Message.new
     end
 
     def update
