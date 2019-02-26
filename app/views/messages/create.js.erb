@@ -1,9 +1,9 @@
-document.querySelector('.chatroom-container').innerHTML += '<%= j render @message %>';
-document.querySelector('.chatroom-container').innerHTML += '<br>';
+document.querySelector('.chatroom-box').innerHTML += '<%= j render @message %>';
+document.querySelector('.chatroom-box').innerHTML += '<br>';
 
 function scrollToBottom(elem) {
     elem.scrollTop = elem.scrollHeight;
 }
 
-setInterval(scrollToBottom(document.querySelector('.chatroom-container')), 2000);
+setInterval(scrollToBottom(document.querySelector('.chatroom-box')), 2000);
 document.querySelector('.message-text-area').value = ""

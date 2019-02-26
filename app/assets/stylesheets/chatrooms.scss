@@ -1,11 +1,21 @@
 // Place all the styles related to the chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.chatroom-container {
+.chatroom-container, .message-form-container {
+    display: flex;
+}
+.chatroom-title {
+    text-align: center;
+}
+.chatroom-box {
+    margin: auto;
     border: 1px solid black;
     height: 60vh;
     overflow-y: scroll;
+    width: 80%;
 }
-.message-text-area {
-    width: 100%;
+.message-form-box {
+    text-align: center;
+    margin: auto;
+    width: 80%;
 }

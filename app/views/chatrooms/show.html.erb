@@ -1,15 +1,20 @@
-<h1><%= @chatroom.title %> Chatroom</h1>
+<h1 class="chatroom-title"><%= @chatroom.title %> Chatroom</h1>
+<br>
 <div class="chatroom-container">
-    <% @messages.each do |message| %>
-        <div class="message-box">
-            <%= render 'messages/message', message: message %>
-        </div>
-    <% end %>
+    <div class="chatroom-box">
+        <% @messages.each do |message| %>
+            <div class="message-box">
+                <%= render 'messages/message', message: message %>
+            </div>
+        <% end %>
+    </div>
 </div>
-<div class="message-form-box">
-    <%= form_with(model: @message, url: chatroom_messages_path(@chatroom), method: :post, class: "message-form") do |f| %>
-        <%= f.text_area :content, class: "textarea message-text-area" %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.submit "Send", class: "button is-primary message-submit-button" %>
-    <% end %>
+<div class="message-form-container">
+    <div class="message-form-box">
+        <%= form_with(model: @message, url: chatroom_messages_path(@chatroom), method: :post, class: "message-form") do |f| %>
+            <%= f.text_area :content, class: "textarea message-text-area" %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.submit "Send", class: "button is-primary message-submit-button" %>
+        <% end %>
+    </div>
 </div>

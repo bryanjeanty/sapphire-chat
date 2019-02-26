@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('turbolinks:load', () => {
-        let chatroomContainer = document.querySelector('.chatroom-container');
+        let chatroomBox = document.querySelector('.chatroom-box');
 
-        chatroomContainer.scrollTop = chatroomContainer.scrollHeight;
+        chatroomBox.scrollTop = chatroomBox.scrollHeight;
     });
 });
