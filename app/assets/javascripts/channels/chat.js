@@ -14,11 +14,11 @@
       let chatroomBox = document.querySelectorAll('.chatroom-box');
       
       for(let i = 0; i < chatroomBox.length; i++) {
-        chatroomBox[i].innerHTML += data['message'];
-        chatroomBox[i].innerHTML += "<br>"
+        chatroomBox[i].innerHTML += data.message;
+        chatroomBox[i].innerHTML += "<br>";
 
         setInterval(scrollToBottom(chatroomBox[i]), 2000);
-        document.querySelector('.message-text-area').value = ""
+        document.querySelector('.message-text-area').value = "";
       }
     }
   });
