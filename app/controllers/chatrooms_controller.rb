@@ -15,7 +15,7 @@ class ChatroomsController < ApplicationController
     end
 
     def show
-        @messages = @chatroom.messages.all
+        @messages = @chatroom.messages.all.order(:id)
         @message = @chatroom.messages.new
     end
 

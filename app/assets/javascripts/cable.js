@@ -8,6 +8,7 @@
 (function() {
   this.App || (this.App = {});
 
-  App.cable = ActionCable.createConsumer();
+  App.cable = ActionCable.createConsumer(
+    document.querySelector('meta[name=action-cable-url]').getAttribute('content'));
 
 }).call(this);

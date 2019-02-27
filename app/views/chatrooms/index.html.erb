@@ -9,10 +9,10 @@
     <% @chatrooms.each do |chatroom| %>
         <div class="chatrooms-box">
             <%= link_to chatroom.title, chatroom_path(chatroom) %>
-            <button class="button is-secondary edit-chatroom-button">
-                Edit Chatroom
-            </button>
             <% if current_user.id == chatroom.user.id %>
+                <button class="button is-secondary edit-chatroom-button">
+                    Edit Chatroom
+                </button>
                 <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
             <% end %>
         </div>
