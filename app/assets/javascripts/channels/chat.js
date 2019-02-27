@@ -7,20 +7,21 @@
       console.log('Disconnected To Chat');
     },
     received: function(data) {
-      function scrollToBottom(elem) {
-        elem.scrollTop = elem.scrollHeight;
-      }
-
       let chatroomBox = document.querySelectorAll('.chatroom-box');
+      let messageImages = document.querySelectorAll('.message-image');
       
       for(let i = 0; i < chatroomBox.length; i++) {
         chatroomBox[i].innerHTML += data.message;
+        chatroomBox[i].append(messageImages[i]);
         chatroomBox[i].innerHTML += "<br>";
 
+        function scrollToBottom(elem) {
+          elem.scrollTop = elem.scrollHeight;
+        }
+        
         setInterval(scrollToBottom(chatroomBox[i]), 2000);
         document.querySelector('.message-text-area').value = "";
       }
     }
   });
-
 }).call(this);
