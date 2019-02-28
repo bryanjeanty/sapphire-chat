@@ -1,8 +1,12 @@
-[ <%= message.created_at.strftime('%I:%M %p') %> ] 
+[ <span class="message-date"><%= message.created_at.strftime('%I:%M %p') %></span> ] 
 <strong>
     <%= link_to message.user.firstname.capitalize, user_path(message.user) %>:
 </strong> 
     <%= message.content %>
-    <% message.images.each do |image| %>
-        <img class="message-image" src="<%= rails_blob_path(image) %>" alt="<%= image.filename.to_s %>" width="200px">
+    <% if message.images.attached? %>
+        <% message.images.each do |image| %>
+            <img class="message-image" src="<%= rails_blob_path(image) %>" alt="<%= image.filename.to_s %>" width="200px">
+        <% end %>
+    <% else %>
+        <img src="" alt="">
     <% end %>

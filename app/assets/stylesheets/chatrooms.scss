@@ -2,15 +2,11 @@
 // // They will automatically be included in application.css.
 // // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// // everything
-* {
-    margin: 0;
-    padding: 0
-}
 // chatroom
 .chatroom-container {
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
+    margin-top: 0.5rem;
 }
 .chatroom-title {
     text-align: center;
@@ -18,10 +14,13 @@
 .chatroom-wrapper {
     width: 45%;
     margin: auto;
-    border: 1px solid black;
-    height: 80vh;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 78vh;
     overflow: hidden;
     transition: width 0.5s;
+    margin-top: 1px;
 }
 .chatroom-box {
     overflow-y: scroll;
@@ -34,20 +33,20 @@
 // editor
 .editor-box {
     margin: auto;
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 45%;
-    height: 80vh;
+    height: 78vh;
     overflow: hidden;
     transition: width 0.5s;
 }
 // chat buttons
 .chatroom-buttons {
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
     margin: 0.25rem 0;
 }
 .chatroom-buttons > div {
-    border: 1px solid black;
+    // border: 1px solid black;
     width: 45%;
     height: 1.75rem;
     margin: auto;
@@ -55,4 +54,43 @@
 }
 .editor-buttons > button, .chatroom-box-buttons > button {
     margin: auto;
+}
+// chatrooms index
+.chat-list-container {
+    height: 95vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.chat-list-wrapper {
+    height: 75%;
+    width: 60%;
+    margin: auto;
+}
+.chatroom-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.create-chat-input, .create-chat-btn {
+    border-radius: 0;
+    padding: 0 10px;
+    height: 2.125rem;
+}
+.chatrooms-line {
+    background-color: black;
+}
+.chatrooms-container {
+    height: 60vh;
+    overflow-y: scroll;
+}
+.create-chat-btn, .delete-chatroom-button, .edit-chatroom-button, .update-chatroom-button, .cancel-edit-chatroom-button {
+    float: right;
+    border-radius: 0;
+}
+.delete-chatroom-button, .edit-chatroom-button, .update-chatroom-button, .cancel-edit-chatroom-button {
+    margin-left: 0.75rem;
+}
+.chatrooms-box {
+    margin: 1rem 1rem 2rem 1rem;
 }

@@ -1,5 +1,6 @@
-<%= form_with(model: @chatroom, url: chatrooms_path, method: :post) do |f| %>
-    <%= f.label :enter_title %>
-    <%= f.text_field :title %>
-    <%= f.submit "Create Chatroom", class: "button is-primary" %>
-<% end %>
+<div class="create-chat-box">
+    <%= form_with(model: @chatroom, url: chatrooms_path, method: :post) do |f| %>
+        <%= f.text_field :title, placeholder: "Enter A Title", class: "create-chat-input" %>
+        <%= f.submit "Create Chatroom", class: "button is-primary create-chat-btn" %>
+    <% end %>
+</div>

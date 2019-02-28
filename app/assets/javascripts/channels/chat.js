@@ -7,12 +7,10 @@
       console.log('Disconnected To Chat');
     },
     received: function(data) {
-      let chatroomBox = document.querySelectorAll('.chatroom-box');
-      let messageImages = document.querySelectorAll('.message-image');
+      let chatroomBox = document.querySelectorAll('.chatroom-box');      
       
       for(let i = 0; i < chatroomBox.length; i++) {
         chatroomBox[i].innerHTML += data.message;
-        chatroomBox[i].append(messageImages[i]);
         chatroomBox[i].innerHTML += "<br>";
 
         function scrollToBottom(elem) {

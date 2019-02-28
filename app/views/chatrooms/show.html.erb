@@ -1,29 +1,29 @@
 <%= render 'editors/codemirror' %>
 
-<h1 class="chatroom-title"><%= @chatroom.title %> Chatroom - Created By: <%= @chatroom.user.username.capitalize %></h1>
+<h1 class="chatroom-title"><%= @chatroom.title.capitalize %> Chatroom - Created By: <%= @chatroom.user.username.capitalize %></h1>
 <div class="chatroom-buttons">
     <div class="editor-buttons">
-        <button class="close-editor-btn">
+        <button class="button is-danger close-editor-btn">
             Close Editor
         </button>
         <!-- In Order: Maximize; Minimize; Default; -->
-        <button class="change-editor-btn">
+        <button class="button is-link change-editor-btn">
             Change Editor State
         </button>
         <%= form_with(model: @editor, url: chatroom_editors_path(@chatroom), method: :post, class: "save-editor-form") do |f| %>
             <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
-            <%= f.submit "Save", class: "save-editor-btn" %>
+            <%= f.submit "Save", class: "button is-success save-editor-btn" %>
         <% end %>
         <% unless @last_editor.nil? %>
-            <p>Last Save: <%= @last_editor.created_at.strftime("%I:%M %p, %b %e, %Y") %></p>
+            <p class="navbar-item">Saved: <%= @last_editor.created_at.strftime("%I:%M %p, %b %e, %Y") %></p>
         <% end %>
     </div>
     <div class="chatroom-box-buttons">
-        <button class="close-chat-btn">
+        <button class="button is-danger close-chat-btn">
             Close Chat
         </button>
         <!-- In Order: Maximize; Minimize; Default; -->
-        <button class="change-chat-btn">
+        <button class="button is-link change-chat-btn">
             Change Chat State
         </button>
     </div>

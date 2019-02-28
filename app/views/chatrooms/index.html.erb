@@ -1,29 +1,37 @@
-<h1>Chatrooms</h1>
+<div class="chat-list-container">
+    <h1 class="chatroom-title">Chatrooms</h1>
+        <div class="chat-list-wrapper">
 
-<%= render 'chatrooms/form' %>
-<br>
+        <%= render 'chatrooms/form' %>
+        <hr class="chatrooms-line">
 
-<% if @chatrooms.length == 0 %>
-        <p>No Chatrooms! Must Create One!</p>
-<% else %>
-    <% @chatrooms.each do |chatroom| %>
-        <div class="chatrooms-box">
-            <%= link_to chatroom.title, chatroom_path(chatroom) %>
-            <% if current_user.id == chatroom.user.id %>
-                <button class="button is-secondary edit-chatroom-button">
-                    Edit Chatroom
-                </button>
-                <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger" %>
+        <div class="chatrooms-container">
+            <% if @chatrooms.length == 0 %>
+                    <p>No Chatrooms! Must Create One!</p>
+            <% else %>
+                <% @chatrooms.each do |chatroom| %>
+                    <div class="chatrooms-box">
+                        <%= link_to chatroom.title.capitalize, chatroom_path(chatroom) %>
+                        <% if current_user.id == chatroom.user.id %>
+                            <%= link_to "Delete Chatroom", chatroom_path(chatroom), method: :delete, class: "button is-danger delete-chatroom-button" %>
+                            <button class="button is-secondary edit-chatroom-button">
+                                Edit Chatroom
+                            </button>
+                        <% end %>
+                    </div>
+
+                    <div class="chatrooms-box">
+                        <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>
+                            <%= f.label :enter_title %>
+                            <%= f.text_field :title %>
+                            <button class="button is-danger cancel-edit-chatroom-button">
+                                Cancel
+                            </button>
+                            <%= f.submit "Update Chatroom", class: "button is-secondary update-chatroom-button" %>
+                        <% end %>
+                    </div>
+                <% end %>
             <% end %>
         </div>
-
-        <%= form_with(model: chatroom, url: chatroom_path(chatroom), method: :patch, class: "edit-chatroom-form") do |f| %>
-            <%= f.label :enter_title %>
-            <%= f.text_field :title %>
-            <%= f.submit "Update Chatroom", class: "button is-secondary" %>
-            <button class="button is-danger cancel-edit-chatroom-button">
-                Cancel
-            </button>
-        <% end %>
-    <% end %>
-<% end %>
+    </div>
+</div>

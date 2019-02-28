@@ -14,3 +14,16 @@
  *= require_self
  */
 @import "bulma";
+
+// // everything
+* {
+    margin: 0;
+    padding: 0
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+.button {
+    border-radius: 0;
+}
