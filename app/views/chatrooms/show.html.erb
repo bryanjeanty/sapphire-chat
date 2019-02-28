@@ -1,6 +1,6 @@
 <%= render 'editors/codemirror' %>
 
-<h1 class="chatroom-title"><%= @chatroom.title %> Chatroom</h1>
+<h1 class="chatroom-title"><%= @chatroom.title %> Chatroom - Created By: <%= @chatroom.user.username.capitalize %></h1>
 <div class="chatroom-buttons">
     <div class="editor-buttons">
         <button class="close-editor-btn">
@@ -14,7 +14,9 @@
             <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
             <%= f.submit "Save", class: "save-editor-btn" %>
         <% end %>
-        <p>Last Save: <%= @last_editor.created_at.strftime("%I:%M %p, %b %e, %Y") %></p>
+        <% unless @last_editor.nil? %>
+            <p>Last Save: <%= @last_editor.created_at.strftime("%I:%M %p, %b %e, %Y") %></p>
+        <% end %>
     </div>
     <div class="chatroom-box-buttons">
         <button class="close-chat-btn">

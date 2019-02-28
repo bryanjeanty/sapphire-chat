@@ -1,6 +1,6 @@
 [ <%= message.created_at.strftime('%I:%M %p') %> ] 
 <strong>
-    <%= message.user.firstname.capitalize %>:
+    <%= link_to message.user.firstname.capitalize, user_path(message.user) %>:
 </strong> 
     <%= message.content %>
     <% message.images.each do |image| %>

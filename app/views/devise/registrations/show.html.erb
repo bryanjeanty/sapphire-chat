@@ -1,7 +1,15 @@
-<h1><%= @user.username %>'s Profile Page</h1>
+<h1><%= @user.username.capitalize %>'s Profile Page</h1>
 <% unless @user == current_user %>
-    <%= link_to "Follow", follower_following_relationship_path(current_user, @user), method: :post %>
-    <%= link_to "Unfollow", follower_following_relationship_path(current_user, @user), method: :delete %>
+    <%= form_with(model: @relationship, url: follower_following_relationship_path(current_user, @user), method: :post) do |f| %>
+        <%= f.hidden_field :follower_id, value: current_user.id %>
+        <%= f.hidden_field :followed_id, value: @user.id %>
+        <%= f.submit "Follow" %>
+    <% end %>
+    <%= form_with(model: @relationship, url: follower_following_relationship_path(current_user, @user), method: :delete) do |f| %>
+        <%= f.hidden_field :follower_id, value: current_user.id %>
+        <%= f.hidden_field :followed_id, value: @user.id %>
+        <%= f.submit "Unfollow" %>
+    <% end %>
 <% end %>
 
 <p>Followers: <%= @user.followers.count %></p>

@@ -20,6 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def show
         @user = User.find(params[:id])
+        @relationship = Relationship.new
     end
 
     private

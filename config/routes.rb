@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
 
   # Social routes
-  post '/followers/:follower_id/following/:following_id' => 'relationships#create', as: 'follower_following_relationship'
-  delete '/followers/:follower_id/following/:following_id' => 'relationships#destroy'
+  post '/followers/:follower_id/followeds/:followed_id' => 'relationships#create', as: 'follower_following_relationship'
+  delete '/followers/:follower_id/followeds/:followed_id' => 'relationships#destroy'
 
   # User profile page
   devise_scope :user do
