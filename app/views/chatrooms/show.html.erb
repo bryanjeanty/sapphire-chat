@@ -1,4 +1,5 @@
 <%= render 'editors/codemirror' %>
+
 <h1 class="chatroom-title"><%= @chatroom.title %> Chatroom</h1>
 <div class="chatroom-buttons">
     <div class="editor-buttons">
@@ -9,6 +10,10 @@
         <button class="change-editor-btn">
             Change Editor State
         </button>
+        <%= form_with(model: @editor, url: chatroom_editors_path(@chatroom), method: :post, class: "save-editor-form") do |f| %>
+            <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
+            <%= f.submit "Save", class: "save-editor-btn" %>
+        <% end %>
     </div>
     <div class="chatroom-box-buttons">
         <button class="close-chat-btn">
