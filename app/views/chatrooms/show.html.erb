@@ -14,6 +14,7 @@
             <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
             <%= f.submit "Save", class: "save-editor-btn" %>
         <% end %>
+        <p>Last Save: <%= @last_editor.created_at.strftime("%I:%M %p, %b %e, %Y") %></p>
     </div>
     <div class="chatroom-box-buttons">
         <button class="close-chat-btn">

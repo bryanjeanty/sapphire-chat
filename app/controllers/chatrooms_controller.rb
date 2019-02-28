@@ -15,7 +15,7 @@ class ChatroomsController < ApplicationController
     end
 
     def show
-        @messages = @chatroom.messages.all.order(:id).with_attached_images
+        @messages = @chatroom.messages.last(20)
         @message = @chatroom.messages.new
         @last_editor = @chatroom.editors.last
         @editor = @chatroom.editors.new
