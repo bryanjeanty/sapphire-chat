@@ -2,14 +2,10 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 document.addEventListener('DOMContentLoaded', () => {
-    let body = document.querySelector('body');
-
-    let codeMirror = document.querySelector('.CodeMirror');
-    codeMirror.style.height = '80vh';
-    codeMirror.style.fontSize = '1.1rem';
+    // let body = document.querySelector('body');
 
     let editorBox = document.querySelector('.editor-box');
-    body.append(editorBox);
+    // body.append(editorBox);
 
     let codeEditor = CodeMirror(editorBox, {
         mode: "javascript",

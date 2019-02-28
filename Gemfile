@@ -12,6 +12,7 @@ gem 'better_errors', '~> 2.5', '>= 2.5.1'
 gem 'guard', '~> 2.15'
 gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 gem 'activestorage'
+gem 'codemirror-rails', '~> 5.16'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
