@@ -1,2 +1,64 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<style>
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+.navbar {
+    height: 5vh;
+}
+.home-page-container {
+    height: 95vh;
+    background-size: cover;
+    color: white;
+}
+.home-page-overlay {
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+}
+.home-page-text-box {
+    border: 1px solid white;
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+}
+.heading-text {
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+.hero-btn {
+    margin-top: 2rem;
+    background: none;
+    color: white;
+    transition: 0.4s ease;
+    font-size: 1.2rem
+}
+.hero-btn:hover {
+    background-color: white;
+    color: black;
+}
+</style>
+
+<div class="home-page-container">
+    <div class="home-page-overlay">
+        <div class="home-page-text-box">
+            <h1 class="heading-text">Great Developers Come Here First</h1>
+            <% if current_user %>
+                <%= link_to chatrooms_path do %>
+                    <button class="button hero-btn">
+                        <strong>Join Chat!</strong>
+                    </button>
+                <% end %>
+            <% else %>
+                <%= link_to new_user_registration_path do %>
+                    <button class="button hero-btn">
+                        <strong>Get Started!</strong>
+                    </button>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
