@@ -1,21 +1,43 @@
 <h1 class="chatroom-title"><%= @chatroom.title %> Chatroom</h1>
-<br>
-<div class="chatroom-container">
-    <div class="chatroom-box">
-        <% @messages.each do |message| %>
-            <div class="message-box">
-                <%= render 'messages/message', message: message %>
+<div class="chatroom-buttons">
+    <div class="editor-buttons">
+        <button class="close-editor-btn">
+            Close Editor
+        </button>
+        <!-- In Order: Maximize; Minimize; Default; -->
+        <button class="change-editor-btn">
+            Change Editor State
+        </button>
+    </div>
+    <div class="chatroom-box-buttons">
+        <button class="close-chat-btn">
+            Close Chat
+        </button>
+        <!-- In Order: Maximize; Minimize; Default; -->
+        <button class="change-chat-btn">
+            Change Chat State
+        </button>
+    </div>
+</div>
+    <div class="chatroom-container">
+        <div class="editor-box"></div>
+        <div class="chatroom-wrapper">
+            <div class="chatroom-box">
+                <% @messages.each do |message| %>
+                    <div class="message-box">
+                        <%= render 'messages/message', message: message %>
+                    </div>
+                <% end %>
             </div>
-        <% end %>
+            <!--<div class="message-form-container">-->
+                <div class="message-form-box">
+                    <%= form_with(model: @message, url: chatroom_messages_path(@chatroom), method: :post, class: "message-form") do |f| %>
+                        <%= f.text_area :content, class: "textarea message-text-area" %>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.file_field :images, multiple: true %>
+                        <%= f.submit "Send", class: "button is-primary message-submit-button" %>
+                    <% end %>
+                </div>
+            <!--</div>-->
+        </div>
     </div>
-</div>
-<div class="message-form-container">
-    <div class="message-form-box">
-        <%= form_with(model: @message, url: chatroom_messages_path(@chatroom), method: :post, class: "message-form") do |f| %>
-            <%= f.text_area :content, class: "textarea message-text-area" %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.file_field :images, multiple: true %>
-            <%= f.submit "Send", class: "button is-primary message-submit-button" %>
-        <% end %>
-    </div>
-</div>

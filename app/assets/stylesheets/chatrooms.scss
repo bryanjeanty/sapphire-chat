@@ -1,21 +1,58 @@
-// Place all the styles related to the chatrooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.chatroom-container, .message-form-container {
+// // Place all the styles related to the chatrooms controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// // everything
+* {
+    margin: 0;
+    padding: 0
+}
+// chatroom
+.chatroom-container {
+    border: 1px solid black;
     display: flex;
 }
 .chatroom-title {
     text-align: center;
 }
-.chatroom-box {
+.chatroom-wrapper {
+    width: 45%;
     margin: auto;
     border: 1px solid black;
-    height: 60vh;
+    height: 80vh;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+.chatroom-box {
     overflow-y: scroll;
-    width: 80%;
+    height: 55vh;
 }
 .message-form-box {
     text-align: center;
     margin: auto;
-    width: 80%;
+}
+// editor
+.editor-box {
+    margin: auto;
+    border: 1px solid black;
+    width: 45%;
+    height: 80vh;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+// chat buttons
+.chatroom-buttons {
+    border: 1px solid black;
+    display: flex;
+    margin: 0.25rem 0;
+}
+.chatroom-buttons > div {
+    border: 1px solid black;
+    width: 45%;
+    height: 1.75rem;
+    margin: auto;
+    display: flex;
+}
+.editor-buttons > button, .chatroom-box-buttons > button {
+    margin: auto;
 }
