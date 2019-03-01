@@ -6,5 +6,21 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: <%= ENV['REDISTOGO_URL'] %>
   channel_prefix: chat-app_production
+
+# development: &development
+#   :url: redis://localhost:3000
+#   :host: localhost
+#   :port: 3000
+#   :timeout: 1
+#   :inline: true
+# # test: *development
+# production: &production
+#   :url: <%= ENV['REDISTOGO_URL'] %>
+#   :host: tarpon.redistogo.com
+#   :port: <%= ENV['REDIS_PORT'] %>
+#   :password: <%= ENV['REDIS_PW'] %>
+#   :inline: true
+#   :timeout: 1

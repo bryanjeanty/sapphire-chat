@@ -80,6 +80,7 @@ development:
 #
 production:
     url: <%= ENV['DATABASE_URL'] %>
+    database: chat-app_production
 #
 # production:
 #   <<: *default
