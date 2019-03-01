@@ -1,0 +1,14 @@
+development: &development
+  :url: redis://localhost:3000
+  :host: localhost
+  :port: 3000
+  :timeout: 1
+  :inline: true
+# test: *development
+production: &production
+  :url: <%= ENV['REDISTOGO_URL'] %>
+  :host: tarpon.redistogo.com
+  :port: <%= ENV['REDIS_PORT'] %>
+  :password: <%= ENV['REDIS_PW'] %>
+  :inline: true
+  :timeout: 1
