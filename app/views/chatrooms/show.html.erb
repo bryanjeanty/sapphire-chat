@@ -11,7 +11,11 @@
             Change Editor State
         </button>
         <%= form_with(model: @editor, url: chatroom_editors_path(@chatroom), method: :post, class: "save-editor-form") do |f| %>
-            <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
+            <% unless @last_editor.nil? %>
+                <%= f.hidden_field :content, class: "save-editor-content-input", value: "#{ @last_editor.content }" %>
+            <% else %>
+                <%= f.hidden_field :content, class: "save-editor-content-input" %>
+            <% end %>
             <%= f.submit "Save", class: "button is-success save-editor-btn" %>
         <% end %>
         <% unless @last_editor.nil? %>
