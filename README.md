@@ -25,13 +25,13 @@ Initial software environment conditions
 
 ## Technology
 
-**_PostgreSQL_**: SQL database used to store user, sessions, followers/following, and messages
-**_Rails_**: Full-stack framework used to create server, connect to database and serve up dynamic HTML content
-**_Action Cable_**: Allows rails full integration with web sockets to allow for real-time communication
-**_Code Mirror_**: Provided in-browser code editor configuration
-**_Devise_**: User registration and session setup
-**_SASS_**: CSS pre-processor added programmatic behavior to application styling
-**_Bulma_**: Small, nimble CSS framework used to quickly add UI components and responsiveness to application
+**_PostgreSQL_**: SQL database used to store user, sessions, followers/following, and messages <br>
+**_Rails_**: Full-stack framework used to create server, connect to database and serve up dynamic HTML content <br>
+**_Action Cable_**: Allows rails full integration with web sockets to allow for real-time communication <br>
+**_Code Mirror_**: Provided in-browser code editor configuration <br>
+**_Devise_**: User registration and session setup <br>
+**_SASS_**: CSS pre-processor added programmatic behavior to application styling <br>
+**_Bulma_**: Small, nimble CSS framework used to quickly add UI components and responsiveness to application <br>
 
 Refer to the [Gemfile]() for additional technology used in this project
 
